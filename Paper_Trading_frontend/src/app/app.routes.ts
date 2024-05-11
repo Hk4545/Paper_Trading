@@ -7,6 +7,7 @@ import { AccountComponent } from './account/account.component';
 import { LoginComponent } from './login/login.component';
 import { TradingServiceService } from './trading-service.service';
 import { RegisterComponent } from './register/register.component';
+import { authGuardGuard } from './auth-guard.guard';
 
 export const routes: Routes = [
             {
@@ -21,7 +22,8 @@ export const routes: Routes = [
             },
             {
                 path:'dashboard',
-                component:DashboardComponent
+                component:DashboardComponent,
+                canActivate:[authGuardGuard]
             },
             {
                 path:'register',
@@ -29,15 +31,18 @@ export const routes: Routes = [
             },
             {
                 path:'holdings',
-                component:HoldingsComponent
+                component:HoldingsComponent,
+                canActivate:[authGuardGuard]
             }, 
             {
                 path:'watchlist',
-                component:WatchlistComponent
+                component:WatchlistComponent,
+                canActivate:[authGuardGuard]
             },
             {
                 path:'account',
-                component:AccountComponent
+                component:AccountComponent,
+                canActivate:[authGuardGuard]
             }
 
 ];

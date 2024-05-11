@@ -14,6 +14,11 @@ export class OrderController {
         return this.orderservice.getOrders(user_id);
     }}
 
+    @Get('/all/:user_id')
+    async getPastOrders(@Param('user_id') user_id: string) {{
+        return this.orderservice.getPastOrders(user_id);
+    }}
+
     @Put(':order_id')
     async updateOrder(@Param('order_id') order_id: string, @Body() orderData:any){
         

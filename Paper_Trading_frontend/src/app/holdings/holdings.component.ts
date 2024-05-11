@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { lastValueFrom } from 'rxjs';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-holdings',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatDialogModule],
+  imports: [CommonModule, MatButtonModule, MatDialogModule, NavbarComponent],
   templateUrl: './holdings.component.html',
   styleUrl: './holdings.component.css'
 })

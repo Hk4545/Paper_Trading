@@ -28,6 +28,16 @@ export class OrderService {
         }
     }
 
+    async getPastOrders(user_id:any){
+        try {
+            let orders = await this.orderModel.find({ user_id: user_id.slice(1), is_sold: true}).exec();
+            return orders;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    }
+
     async updateOrder(order_id:any, orderData:any){
         try{
             let update = await this.orderModel.updateOne({_id: order_id.slice(1)}, {$set:{is_sold: true, sell_price: orderData.soldPrice}})

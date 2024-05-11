@@ -1,3 +1,6 @@
+<app-navbar></app-navbar>
+
+
 <div class="mainContainer">
     <div style="display: flex; justify-content: space-between;">
         <div class="accountHeading">Account</div>
@@ -31,7 +34,29 @@
     <div class="accountHeading" style="margin-top: 35px;">
         P&L Statement</div>
     <hr style=" margin-left: 20px;">
-    <div>
-        
+    <div style="margin-top: 25px; margin-left: 20px; font-weight: 500;">Past Orders</div>
+    <div style="margin-top: 20px; padding-bottom: 30px; width: 100%; display: flex; justify-content: center;">
+        <table *ngIf="allStocks.length > 0">
+            <thead>
+                <th>S.No</th>
+                <th>Stock</th>
+                <th>Buy Price</th>
+                <th>Sell Price</th>
+                <th>Quantity</th>
+                <th>Profit/Loss</th>
+                <th>Change</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of allStocks; let index=index">
+                    <td>{{index+1}}</td>
+                    <td>{{data?.stock_name}}</td>
+                    <td>{{data?.price}}</td>
+                    <td>{{data?.sell_price}}</td>
+                    <td>{{data?.qty}}</td>
+                    <td style="color: {{data?.sell_price >= data?.price ? 'green':'red'}}">{{data?.sell_price >= data?.price ? "+ ": ""}}{{((data?.sell_price - data?.price) * data?.qty )|number:'1.2-2'}}% </td>
+                    <td style="color: {{data?.sell_price >= data?.price ? 'green':'red'}}">{{data?.sell_price >= data?.price ? "+ ": ""}}{{((data?.sell_price - data?.price)/data?.price * 100) |number:'1.2-2' }}%</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

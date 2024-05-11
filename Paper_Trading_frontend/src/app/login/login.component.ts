@@ -26,7 +26,7 @@ export class LoginComponent {
       this.tradingService.loginCheck(this.registerForm.value).subscribe(
         (res: any | null) => {
           console.log("Response from login", res);
-          if (res) {
+          if (res?.user) {
             this.tradingService.setlogin(res?.user);
             this.router.navigate(['/dashboard']).then(() => {
               this.cdr.detectChanges();
@@ -57,5 +57,9 @@ export class LoginComponent {
       return 'Please enter a valid email address';
     }
     return '';
+  }
+
+  routeToRegister(){
+    this.router.navigate(['register'])
   }
 }

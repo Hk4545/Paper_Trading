@@ -27,13 +27,13 @@
                     {{ getErrorMessage('password') }}
                   </div>
             </div>
-            <div class="inputContainer">
+            <!-- <div class="inputContainer">
                 <label for="apikey">Api Key :</label>
                 <input type="text" formControlName="apikey" class="inputStyle">
                 <div *ngIf="registerForm.get('apikey')?.invalid && registerForm.get('apikey')?.touched" class="error">
                     {{ getErrorMessage('apikey') }}
                 </div>
-            </div>
+            </div> -->
             <button type="submit" class="button" style="background-color: #a254eb; color: white;" (click)="onSubmit($event)">Register</button>
         </form>
 </div>

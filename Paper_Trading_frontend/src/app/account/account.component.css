@@ -22,3 +22,23 @@
     gap: 30%;
     padding-left: 5%;
 }
+
+table {
+    width: 90%;
+    border: 1.5px solid black;
+    border-radius: 10px;
+  }
+thead{
+    border: 1.5px solid black;
+}
+
+th{
+    font-weight: 550;
+    padding: 15px 10px;
+    border-radius: 10px;
+}
+
+td{
+    padding: 15px 10px;
+    text-align: center;
+}

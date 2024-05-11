@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef } from '@angu
 import {MatButtonModule} from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { lastValueFrom } from 'rxjs';
+import { NavbarComponent } from '../navbar/navbar.component';
 // import {stockList} from '../../assets/stockList'
 
 @Component({
@@ -11,7 +12,7 @@ import { lastValueFrom } from 'rxjs';
   standalone:true,
   templateUrl: './watchlist.component.html',
   styleUrls: ['./watchlist.component.css'],
-  imports:[MatButtonModule, CommonModule, MatDialogModule],
+  imports:[MatButtonModule, CommonModule, MatDialogModule, NavbarComponent],
 })
 export class WatchlistComponent implements OnInit {
   symbolsList: any = [];

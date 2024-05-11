@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TradingServiceService } from '../trading-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,13 +13,12 @@ import { TradingServiceService } from '../trading-service.service';
 })
 export class RegisterComponent {
 
-  constructor(private tradingService:TradingServiceService){}
+  constructor(private tradingService:TradingServiceService, private router: Router){}
 
   registerForm = new FormGroup({
     username: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
-    apikey: new FormControl('', Validators.required)
+    password: new FormControl('', Validators.required)
   });
 
   onSubmit(event:Event){
@@ -30,6 +30,7 @@ export class RegisterComponent {
           if(!res){
             alert("User already exists")
           } else{
+            this.router.navigate(['login'])
           }
         })
       } catch(err){
